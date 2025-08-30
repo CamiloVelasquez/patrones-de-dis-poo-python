@@ -7,9 +7,12 @@ app = Flask(__name__)
 
 
 tienda = Tienda()
-tienda.agregar_producto(Producto("EA", "Laptop", "Laptop básica", 10, 2000))
-tienda.agregar_producto(Producto("WE", "Manzanas", "Manzanas frescas (kg)", 50, 0.002))
-tienda.agregar_producto(Producto("SP", "Camiseta", "Camiseta promocional", 30, 50))
+tienda.agregar_producto(Producto("EA001", "Laptop", "Laptop básica", 10, 1000000))
+tienda.agregar_producto(Producto("WE001", "Manzanas", "Manzanas frescas (Precio por gramo)", 50, 2))
+tienda.agregar_producto(Producto("SP001", "Camiseta", "Camiseta promocional", 30, 300000))
+tienda.agregar_producto(Producto("SP002", "Auriculares", "Auriculares inalámbricos Bluetooth", 15, 120000))
+tienda.agregar_producto(Producto("EA002", "Libro", "Libro de programación en Python", 20, 80000))
+
 usuario = Usuario("Daniela")
 tienda.usuarios[usuario.nombre] = usuario
 
