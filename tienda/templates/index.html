@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<h2>Productos disponibles</h2>
+<div class="productos">
+  {% for p in productos %}
+  <div class="card">
+    <h3>{{ p.nombre }}</h3>
+    <p>{{ p.descripcion }}</p>
+    <p><b>Precio:</b> ${{ "%.2f"|format(p.precio_unitario) }}</p>
+    <p><b>Stock:</b> {{ p.unidades_disponibles }}</p>
+
+    <form
+      action="{{ url_for('agregar_al_carrito') }}"
+      method="post"
+      class="form-carrito"
+    >
+      <input type="hidden" name="sku" value="{{ p.sku }}" />
+      <input type="number" name="cantidad" min="1" value="1" />
+      <button type="submit">Agregar al carrito</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

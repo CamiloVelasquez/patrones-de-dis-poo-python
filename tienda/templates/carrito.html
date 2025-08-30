@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<h2>Carrito de compras</h2>
+{% if items %}
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Producto</th>
+    <th>Cantidad</th>
+    <th>Total</th>
+    <th>Acción</th>
+  </tr>
+  {% for item in items %}
+  <tr>
+    <td>{{ item.producto.nombre }}</td>
+    <td>{{ item.cantidad }}</td>
+    <td>${{ item.calcular_total() }}</td>
+    <td>
+      <a
+        href="{{ url_for('borrar_item', sku=item.producto.sku) }} "
+        class="btn-delete"
+        >Eliminar</a
+      >
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+<p><b>Total carrito: ${{ total }}</b></p>
+<a href="{{ url_for('finalizar_compra') }} " class="btn-finalizar"
+  >Finalizar compra</a
+>
+{% else %}
+<p>El carrito está vacío.</p>
+{% endif %} {% endblock %}

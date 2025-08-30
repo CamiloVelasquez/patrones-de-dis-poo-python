@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% block content %}
+<div class="mensaje-box">
+  <h2>📢 Notificación</h2>
+  <p>{{ mensaje }}</p>
+  <a href="{{ url_for('index') }}" class="btn">⬅️ Volver a inicio</a>
+</div>
+{% endblock %}
